@@ -1,0 +1,20 @@
+<h1>About <%= @user.name %></h1>
+<% if @user.role? :artist %>
+  <strong>Artist</strong>
+<% else %>
+  <strong>Buyer</strong>
+<% end %>
+<div>
+  <% if @user.image_url.empty? %>
+    <%= image_tag("http://www.sxc.hu/pic/m/t/to/topfer/1009494_pencils_2.jpg") %>
+  <% else %>
+    <%= image_tag(@user.image_url, :class => 'user_image') %>
+  <% end %>
+</div>
+
+
+<% if @user.role? :artist %> 
+<div>
+  <h2><%= link_to(("*see #{@user.name} artworks"), user_artworks_path(@user)) if can?(:read, Artwork) %></h2>
+</div>
+<% end %>

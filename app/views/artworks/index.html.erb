@@ -1,0 +1,6 @@
+<% if User.find(params[:user_id]).role? :artist %> 
+  <%= render 'gallery' %>
+  <div class="artwork_links">
+    <h2><%= create_artwork_link(Artwork, "New artwork" ) %>
+  </h2></div>
+<% end %>

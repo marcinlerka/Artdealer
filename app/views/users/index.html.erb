@@ -1,0 +1,17 @@
+<h1>Discover Artdealer Artists</h1>
+<% @users.each do |user| %>
+  <% if user.role? :artist %>
+    <div>
+      <br>
+      <h2><%= user.name %></h2>
+    </div>
+    <div>
+      <% if user.image_url.empty? %>
+        <%= show_user_link(user, image_tag("http://www.sxc.hu/pic/m/t/to/topfer/1009494_pencils_2.jpg", :border => "0") ) %>
+      <% else %>
+        <%= show_user_link(user, image_tag(user.image_url, :height => "300", :border => "0", :class => 'user_image') ) %>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
+<% end %>

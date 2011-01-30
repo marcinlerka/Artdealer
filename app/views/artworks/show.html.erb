@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @artwork.title %></h1>
+<div class="artwork_author">
+  by <%= show_user_link(@artwork.user, @artwork.user.name) %>
+</div>
+
+<div class="artwork_view">
+  <%= image_tag(@artwork.image_url, :class => "artwork_image") %>
+</div>
+
+<div class="artwork_price">
+  <b>Price:</b> <%= @artwork.price %> $
+</div>
+
+<div class="artwork_description">
+  <b>Description:</b> <%= @artwork.description %>
+</div><br>
+
+<div class="artwork_links">
+  <%= edit_artwork_link(@artwork, "Edit") %>
+  <%= index_artwork_link(@artwork, "Back") %>
+</div>

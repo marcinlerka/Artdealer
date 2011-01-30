@@ -1,0 +1,22 @@
+<h2>Sign in</h2>
+<div>
+  <strong>If You want to TEST Artdealer use sample Artist accout:</strong><br><br>
+  <b>Email:</b> test@artist.com<br>
+  <b>Password:</b> 123456<br>
+</div>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+  <b><p><%= f.label :email %></b><br />
+  <%= f.text_field :email %></p>
+
+  <b><p><%= f.label :password %></b> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password %></p>
+
+  <% if devise_mapping.rememberable? -%>
+    <b><p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p></b>
+  <% end -%>
+
+  <p><%= f.submit "Sign in" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

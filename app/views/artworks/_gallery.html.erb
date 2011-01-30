@@ -1,0 +1,24 @@
+<h1><%= show_user_link(@user, @user.name) %> artworks</h1>
+<table>
+<% @artworks.each do |artwork| %>
+  <tr>
+    <td><b><%= show_artwork_link(artwork, artwork.title) %></b></td>
+  </tr>
+  <tr>
+    <td>
+      <div class="artwork_preview">
+        <%= show_artwork_link(artwork, image_tag(artwork.image_url, :width => "400", :border => "0", :class => "artwork_preview_image")) %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td><b>Price:</b> <%= artwork.price %> $</td>
+    <td><%= edit_artwork_link(artwork, "Edit") %></td>
+    <td><%= destroy_artwork_link(artwork, "Destroy") %></td>
+  </tr>
+  <tr>
+    <td><br></td>
+  </tr>
+<% end %>
+</table>
+<br>

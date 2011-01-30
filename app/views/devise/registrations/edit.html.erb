@@ -1,0 +1,45 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <b>Choose your account type:</b> 
+  <% for role in Role.find(:all) %> 
+    <div> 
+      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %> 
+      <% if role.name == "Artist" %>
+        I want to <b>sell</b> my Masterpiece
+      <% end %>
+      <% if role.name == "Buyer" %>
+        I want to <b>buy</b> Great piece of Art
+      <% end %>
+    </div> 
+  <% end %> 
+
+  <b><p><%= f.label :name %></b><br />
+  <%= f.text_field :name %></p>
+
+  <b><p><%= f.label :email %></b><br />
+  <%= f.text_field :email %></p>
+
+  <b><p><%= f.label :password %></b> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password %></p>
+
+  <b><p><%= f.label :password_confirmation %></b><br />
+  <%= f.password_field :password_confirmation %></p>
+  
+  <b><p>My picture </b><i>(paste URL with your picture or leave field blank)</i><br />
+  <%= f.text_field :image_url %></p>
+
+  <b><p><%= f.label :current_password %></b> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.password_field :current_password %></p>
+
+
+  <p><%= f.submit "Update" %></p>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+<%= link_to "Back", :back %>
