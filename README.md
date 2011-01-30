@@ -15,5 +15,6 @@
     rake db:seed
 
 
-***
+-----------------------------
+
 Copyright © 2011 Marcin Lerka
