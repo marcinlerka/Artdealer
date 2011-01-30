@@ -47,8 +47,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    polish (0.1.1)
-      i18n (>= 0.3.3)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -78,16 +76,13 @@ GEM
     tzinfo (0.3.24)
     warden (1.0.3)
       rack (>= 1.0.0)
-    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cancan
-  devise
+  devise (= 1.1.5)
   jquery-rails (>= 0.2.6)
-  polish (= 0.1.1)
   rails (= 3.0.3)
   sqlite3-ruby
-  will_paginate (= 3.0.pre2)
